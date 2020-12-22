@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+
+<html>
+<head> 
+      <title>Temp Conversion</title>
+      <meta charset="utf-8">
+</head>
+<body>
+    <form name="tempConvert" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+
+<table>
+<tr>
+    <td>Enter value to convert</td>
+    <td><input type="text" name="valueConvert" id="valueConvert" size="15"></td>
+</tr>
+
+<tr>
+    <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
+</tr>
+
+
+
+</form>
+
+<?php
+
+    function tempConvert($valueConvert)
+    {
+        $conversion = ($valueConvert - 32) * (5/9);
+        return $conversion;
+    }
+
+    $valueConvert = $_POST['valueConvert'];
+    $conversion = tempConvert($valueConvert);
+    echo "The initial temperature was $valueConvert. The new temperature is $conversion.";
+
+?>
+
+    </body>
+</html>
